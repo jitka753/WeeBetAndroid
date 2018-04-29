@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeeBet</string>
+    <string name="scrolling_view">Scrolling VIew</string>
 </resources>
