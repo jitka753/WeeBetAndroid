@@ -1,12 +1,15 @@
 package com.example.a1061985.weebet.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.List;
 
 public class Match {
 
     private int Id;
-    private Contendent ContendentHome;
+    @SerializedName(value = "contendentHome", alternate = {"ContendentHome"})
+    private Contendent contendentHome;
     private Contendent ContendentAway;
     private Date Time;
     private List<Odds> Odds;
@@ -15,7 +18,7 @@ public class Match {
 
     public Match(int id, Contendent contenderHome, Contendent contenderAway, Date time, List<Odds> odds) {
         this.Id = id;
-        this.ContendentHome = contenderHome;
+        this.contendentHome = contenderHome;
         this.ContendentAway = contenderAway;
         this.Time = time;
         this.Odds = odds;
@@ -30,11 +33,11 @@ public class Match {
     }
 
     public Contendent getContendentHome() {
-        return ContendentHome;
+        return contendentHome;
     }
 
     public void setContendentHome(Contendent contendentHome) {
-        this.ContendentHome = contendentHome;
+        this.contendentHome = contendentHome;
     }
 
     public Contendent getContendentAway() {

@@ -1,9 +1,13 @@
 package com.example.a1061985.weebet.Model;
 
-public class Vendor {
+import com.google.gson.annotations.SerializedName;
 
-    private int id;
+public class Vendor {
+    @SerializedName(value = "id", alternate = {"Id"})
+    protected int id;
+    @SerializedName(value = "name", alternate = {"Name"})
     private String name;
+    @SerializedName(value = "url", alternate = {"Url"})
     private String url;
 
     public Vendor(){};

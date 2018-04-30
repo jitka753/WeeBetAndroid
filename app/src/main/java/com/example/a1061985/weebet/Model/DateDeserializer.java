@@ -15,13 +15,15 @@ public class DateDeserializer implements JsonDeserializer<Date> {
 
     @Override
     public Date deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
-        String date = element.getAsString();
-
-        SimpleDateFormat formatter = new SimpleDateFormat("M/d/yy hh:mm a");
-        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String rawDate = element.getAsString();
+        String[] dateParts = rawDate.split("T");
+        String date = dateParts[0] + " " + dateParts[1];
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         try {
-            return formatter.parse(date);
+            Date res = formatter.parse(date);
+            return res;
         } catch (ParseException e) {
 
             return null;

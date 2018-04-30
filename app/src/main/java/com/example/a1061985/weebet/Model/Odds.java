@@ -1,11 +1,14 @@
 package com.example.a1061985.weebet.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Odds {
 
     private int id;
     private double Odds1;
     private double OddsX;
     private double Odds2;
+    @SerializedName(value = "vendor", alternate = {"Vendor"})
     private Vendor vendor;
 
     public Odds(){};
