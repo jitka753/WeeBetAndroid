@@ -49,13 +49,15 @@ public class ListViewAdapter extends ArrayAdapter<Odd> {
 
         Odd item = getItem(position);
 
-        vh.textViewOdd1.setText(Double.toString(item.getOdd_1()));
+        vh.textViewOdd1.setText(String.valueOf(item.getOdd_1()));
         vh.textViewOddX.setText(Double.toString(item.getOdd_x()));
         vh.textViewOdd2.setText(Double.toString(item.getOdd_2()));
 
 
         return vh.rootView;
     }
+
+
     private static class ViewHolder {
         public final RelativeLayout rootView;
         public final TextView textViewOdd1;
@@ -76,6 +78,8 @@ public class ListViewAdapter extends ArrayAdapter<Odd> {
             return new ViewHolder(rootView, textViewOdd1, textViewOdd2, textViewOddX);
         }
     }
+
+
 }
 
 

@@ -49,6 +49,8 @@ public class ListOddsActivity extends AppCompatActivity {
         //        Snackbar.make(findViewById(R.id.parentLayout), list.get(position).getName() + " => " + list.get(position).getPhone(), Snackbar.LENGTH_LONG).show();
         //   }
         //});
+        GetDataTask task = new GetDataTask();
+        task.execute();
     }
 
     /**
@@ -79,6 +81,7 @@ public class ListOddsActivity extends AppCompatActivity {
             JSONObject jsonObject = JSONparser.getDataFromWeb();
 
             try {
+                ArrayList<Odd> res = new ArrayList<>();
                 /**
                  * Check Whether Its NULL???
                  */
@@ -131,8 +134,11 @@ public class ListOddsActivity extends AppCompatActivity {
                                 /**
                                  * Adding name and phone concatenation in List...
                                  */
+                                res.add(model);
                                 list.add(model);
+                               /* adapter.notifyDataSetChanged();*/
                             }
+
                         }
                     }
                 } else {
@@ -153,6 +159,9 @@ public class ListOddsActivity extends AppCompatActivity {
              * Update ListView
              */
             if(list.size() > 0) {
+
+                adapter = new ListViewAdapter(getApplicationContext(), list);
+                listView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             } else {
                // Snackbar.make(findViewById(R.id.parentLayout), "No Data Found", Snackbar.LENGTH_LONG).show();
