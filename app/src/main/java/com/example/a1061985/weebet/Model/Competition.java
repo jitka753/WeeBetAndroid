@@ -4,49 +4,49 @@ import java.util.List;
 
 public class Competition {
 
-    private int id;
-    private String name;
-    private Sport sport;
-    private List<Match> matches;
+    private int Id;
+    private String Name;
+    private Sport Sport;
+    private List<Match> Matches;
 
     public Competition(){};
 
     public Competition(int id, String name, Sport sport, List<Match> matches) {
-        this.id = id;
-        this.name = name;
-        this.sport = sport;
-        this.matches = matches;
+        this.Id = id;
+        this.Name = name;
+        this.Sport = sport;
+        this.Matches = matches;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public Sport getSport() {
-        return sport;
+        return Sport;
     }
 
     public void setSport(Sport sport) {
-        this.sport = sport;
+        this.Sport = sport;
     }
 
     public List<Match> getMatches() {
-        return matches;
+        return Matches;
     }
 
     public void setMatches(List<Match> matches) {
-        this.matches = matches;
+        this.Matches = matches;
     }
 }

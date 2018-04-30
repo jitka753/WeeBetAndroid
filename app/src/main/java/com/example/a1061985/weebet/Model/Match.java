@@ -5,59 +5,59 @@ import java.util.List;
 
 public class Match {
 
-    private int id;
-    private Contender contenderHome;
-    private Contender contenderAway;
-    private Date time;
-    private List<Odd> odds;
+    private int Id;
+    private Contendent ContendentHome;
+    private Contendent ContendentAway;
+    private Date Time;
+    private List<Odds> Odds;
 
     public Match(){};
 
-    public Match(int id, Contender contenderHome, Contender contenderAway, Date time, List<Odd> odds) {
-        this.id = id;
-        this.contenderHome = contenderHome;
-        this.contenderAway = contenderAway;
-        this.time = time;
-        this.odds = odds;
+    public Match(int id, Contendent contenderHome, Contendent contenderAway, Date time, List<Odds> odds) {
+        this.Id = id;
+        this.ContendentHome = contenderHome;
+        this.ContendentAway = contenderAway;
+        this.Time = time;
+        this.Odds = odds;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
-    public Contender getContenderHome() {
-        return contenderHome;
+    public Contendent getContendentHome() {
+        return ContendentHome;
     }
 
-    public void setContenderHome(Contender contenderHome) {
-        this.contenderHome = contenderHome;
+    public void setContendentHome(Contendent contendentHome) {
+        this.ContendentHome = contendentHome;
     }
 
-    public Contender getContenderAway() {
-        return contenderAway;
+    public Contendent getContendentAway() {
+        return ContendentAway;
     }
 
-    public void setContenderAway(Contender contenderAway) {
-        this.contenderAway = contenderAway;
+    public void setContendentAway(Contendent contendentAway) {
+        this.ContendentAway = contendentAway;
     }
 
     public Date getTime() {
-        return time;
+        return Time;
     }
 
     public void setTime(Date time) {
-        this.time = time;
+        this.Time = time;
     }
 
-    public List<Odd> getOdds() {
-        return odds;
+    public List<Odds> getOdds() {
+        return Odds;
     }
 
-    public void setOdds(List<Odd> odds) {
-        this.odds = odds;
+    public void setOdds(List<Odds> odds) {
+        this.Odds = odds;
     }
 }

@@ -5,19 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-import android.widget.Toolbar;
-import android.view.View;
-import android.support.v7.app.AppCompatActivity;
 
 import com.example.a1061985.weebet.Adapter.ListViewAdapter;
 import com.example.a1061985.weebet.Parser.JSONparser;
-import com.example.a1061985.weebet.Model.Odd;
-import com.example.a1061985.weebet.Utils.InternetConnection;
+import com.example.a1061985.weebet.Model.Odds;
 import com.example.a1061985.weebet.Utils.Keys;
 
 import org.json.JSONException;
@@ -29,7 +22,7 @@ import java.util.ArrayList;
 public class ListOddsActivity extends AppCompatActivity {
 
     private ListView listView;
-    private ArrayList<Odd> list;
+    private ArrayList<Odds> list;
     private ListViewAdapter adapter;
 
     @Override
@@ -81,7 +74,7 @@ public class ListOddsActivity extends AppCompatActivity {
             JSONObject jsonObject = JSONparser.getDataFromWeb();
 
             try {
-                ArrayList<Odd> res = new ArrayList<>();
+                ArrayList<Odds> res = new ArrayList<>();
                 /**
                  * Check Whether Its NULL???
                  */
@@ -107,7 +100,7 @@ public class ListOddsActivity extends AppCompatActivity {
                                  * and
                                  * Adding into List
                                  */
-                                Odd model = new Odd();
+                                Odds model = new Odds();
 
                                 /**
                                  * Getting Inner Object from contacts array...
@@ -126,9 +119,9 @@ public class ListOddsActivity extends AppCompatActivity {
                               //  JSONObject phoneObject = innerObject.getJSONObject(Keys.KEY_PHONE);
                                // String phone = phoneObject.getString(Keys.KEY_MOBILE);
 
-                                model.setOdd_1(odd1);
-                                model.setOdd_2(odd2);
-                                model.setOdd_x(oddX);
+                                model.setOdds1(odd1);
+                                model.setOdds2(odd2);
+                                model.setOddsX(oddX);
 
 
                                 /**

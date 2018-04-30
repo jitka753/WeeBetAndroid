@@ -10,20 +10,20 @@ import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.a1061985.weebet.Model.Odd;
+import com.example.a1061985.weebet.Model.Odds;
 import com.example.a1061985.weebet.R;
 
 import java.util.List;
 
-public class ListViewAdapter extends ArrayAdapter<Odd> {
+public class ListViewAdapter extends ArrayAdapter<Odds> {
 
-    List<Odd> odds;
+    List<Odds> odds;
     Context context;
     private LayoutInflater mInflater;
 
 
     // Constructors
-    public ListViewAdapter(Context context, List<Odd> objects) {
+    public ListViewAdapter(Context context, List<Odds> objects) {
         super(context, 0, objects);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
@@ -31,7 +31,7 @@ public class ListViewAdapter extends ArrayAdapter<Odd> {
     }
 
     @Override
-    public Odd getItem(int position) {
+    public Odds getItem(int position) {
         return odds.get(position);
     }
 
@@ -47,11 +47,11 @@ public class ListViewAdapter extends ArrayAdapter<Odd> {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        Odd item = getItem(position);
+        Odds item = getItem(position);
 
-        vh.textViewOdd1.setText(String.valueOf(item.getOdd_1()));
-        vh.textViewOddX.setText(Double.toString(item.getOdd_x()));
-        vh.textViewOdd2.setText(Double.toString(item.getOdd_2()));
+        vh.textViewOdd1.setText(String.valueOf(item.getOdds1()));
+        vh.textViewOddX.setText(Double.toString(item.getOddsX()));
+        vh.textViewOdd2.setText(Double.toString(item.getOdds2()));
 
 
         return vh.rootView;
