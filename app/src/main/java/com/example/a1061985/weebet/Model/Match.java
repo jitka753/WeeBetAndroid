@@ -7,29 +7,33 @@ import java.util.List;
 
 public class Match {
 
-    private int Id;
+    @SerializedName(value = "id", alternate = {"Id"})
+    protected int id;
     @SerializedName(value = "contendentHome", alternate = {"ContendentHome"})
     private Contendent contendentHome;
-    private Contendent ContendentAway;
-    private Date Time;
-    private List<Odds> Odds;
+    @SerializedName(value = "contendentAway", alternate = {"ContendentAway"})
+    private Contendent contendentAway;
+    @SerializedName(value = "time", alternate = {"Time"})
+    private Date time;
+    @SerializedName(value = "odds", alternate = {"Odds"})
+    private List<Odds> odds;
 
     public Match(){};
 
-    public Match(int id, Contendent contenderHome, Contendent contenderAway, Date time, List<Odds> odds) {
-        this.Id = id;
-        this.contendentHome = contenderHome;
-        this.ContendentAway = contenderAway;
-        this.Time = time;
-        this.Odds = odds;
+    public Match(int id, Contendent contendentHome, Contendent contendentAway, Date time, List<Odds> odds) {
+        this.id = id;
+        this.contendentHome = contendentHome;
+        this.contendentAway = contendentAway;
+        this.time = time;
+        this.odds = odds;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public Contendent getContendentHome() {
@@ -41,26 +45,26 @@ public class Match {
     }
 
     public Contendent getContendentAway() {
-        return ContendentAway;
+        return contendentAway;
     }
 
     public void setContendentAway(Contendent contendentAway) {
-        this.ContendentAway = contendentAway;
+        this.contendentAway = contendentAway;
     }
 
     public Date getTime() {
-        return Time;
+        return time;
     }
 
     public void setTime(Date time) {
-        this.Time = time;
+        this.time = time;
     }
 
     public List<Odds> getOdds() {
-        return Odds;
+        return odds;
     }
 
     public void setOdds(List<Odds> odds) {
-        this.Odds = odds;
+        this.odds = odds;
     }
 }

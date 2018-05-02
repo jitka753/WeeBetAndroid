@@ -17,26 +17,17 @@ import org.json.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 public class JSONparser {
 
     private static final String MAIN_URL = "http://odds.arneralston.dk/api/matches/1";
-
-
     public static final String TAG = "TAG";
-
-
-   // private static final String KEY_USER_ID = "user_id";
-
     private static Response response;
-    /**
-     * Get Data From WEB
-     *
-     * @return JSON Object
-     */
-    public static JSONObject getDataFromWeb() {
+
+    public static ArrayList<Match> getDataFromWeb() {
         try {
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
@@ -50,9 +41,11 @@ public class JSONparser {
             Gson gson = gsonBuilder.create();
 
             Match[] matches = gson.fromJson(resString, Match[].class);
-            JSONObject jsonObject = new JSONObject(resString);
-            return jsonObject;
-        } catch (@NonNull IOException | JSONException e) {
+            //JSONObject jsonObject = new JSONObject(resString);
+            ArrayList res = new ArrayList<Match>(Arrays.asList(matches));
+            return res;
+
+        } catch (@NonNull IOException e) {
             Log.e(TAG, "" + e.getLocalizedMessage());
         }
         return null;

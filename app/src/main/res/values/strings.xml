@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">WeeBet</string>
     <string name="scrolling_view">Scrolling VIew</string>
+    <string name="title_contendentHome">Team Home</string>
+    <string name="title_contendentAway">Team Away</string>
+    <string name="title_odd1">Odd 1</string>
+    <string name="title_oddX">Odd X</string>
+    <string name="title_odd2">Odd 2</string>
+    <string name="title_vendor">Vendor</string>
 </resources>

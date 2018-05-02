@@ -1,41 +1,46 @@
 package com.example.a1061985.weebet.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Contendent {
 
-    private int Id;
-    private String Name;
-    private String Country;
+    @SerializedName(value = "id", alternate = {"Id"})
+    protected int id;
+    @SerializedName(value = "name", alternate = {"Name"})
+    private String name;
+    @SerializedName(value = "country", alternate = {"Country"})
+    private String country;
 
 
     public Contendent(){};
 
     public Contendent(int id, String name, String country) {
-        this.Id = id;
-        this.Name = name;
-        this.Country = country;
+        this.id = id;
+        this.name = name;
+        this.country = country;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        this.Name = name;
+        this.name = name;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        this.Country = country;
+        this.country = country;
     }
 }
