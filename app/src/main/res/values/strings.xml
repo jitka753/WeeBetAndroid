@@ -7,4 +7,11 @@
     <string name="title_oddX">Odd X: </string>
     <string name="title_odd2">Odd 2: </string>
     <string name="title_vendor">Vendor: </string>
+
+    <string name = "soccerButton"> Soccer </string>
+    <string name = "button2"> Tennis </string>
+    <string name = "button3"> Football </string>
+    <string name = "button4"> Golf </string>
+    <string name = "button5"> Archery </string>
+    <string name = "button6"> Bowling </string>
 </resources>
