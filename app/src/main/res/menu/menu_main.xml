@@ -6,4 +6,9 @@
         android:title="Compare odds"
 
         />
+    <item
+        android:id="@+id/menu_competitions"
+        android:title="View Competitions"
+
+        />
 </menu>

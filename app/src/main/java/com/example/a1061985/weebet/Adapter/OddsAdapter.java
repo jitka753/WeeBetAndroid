@@ -19,7 +19,6 @@ public class OddsAdapter extends ArrayAdapter<Odds> {
 
     private List<Odds> odds;
     Context context;
-    private LayoutInflater mInflater;
 
 
     public OddsAdapter(@NonNull Context context, List<Odds> objects) {

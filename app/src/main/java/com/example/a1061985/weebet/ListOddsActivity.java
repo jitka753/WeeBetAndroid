@@ -5,18 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.ListView;
 
 import com.example.a1061985.weebet.Adapter.ListViewAdapter;
 import com.example.a1061985.weebet.Model.Match;
 import com.example.a1061985.weebet.Parser.JSONparser;
-import com.example.a1061985.weebet.Model.Odds;
-import com.example.a1061985.weebet.Utils.Keys;
-
-import org.json.JSONException;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -70,7 +63,7 @@ public class ListOddsActivity extends AppCompatActivity {
         protected ArrayList<Match> doInBackground(Void... params) {
 
             //0 Getting JSON Object from Web Using okHttp
-            ArrayList<Match> matches = JSONparser.getDataFromWeb();
+            ArrayList<Match> matches = JSONparser.getMatchesFromServiceByCompId(1);
             return matches;
         }
 

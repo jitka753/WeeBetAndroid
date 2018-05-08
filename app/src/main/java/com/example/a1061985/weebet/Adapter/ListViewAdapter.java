@@ -59,21 +59,25 @@ public class ListViewAdapter extends ArrayAdapter<Match> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // return super.getView(position, convertView, parent);
         ViewHolder viewHolder;
+        Match item = getItem(position);
         //DataRecording dataRecording = getItem(position);
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.layout_row_view, parent, false);
             viewHolder = new ViewHolder(convertView);
+
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        Match item = getItem(position);
+        viewHolder.adapter= new OddsAdapter(getContext(), item.getOdds());
         viewHolder.textview_list_contendentAway.setText(String.valueOf(item.getContendentAway().getName()));
         viewHolder.textview_list_contendentHome.setText(String.valueOf(item.getContendentHome().getName()));
 
-        viewHolder.adapter= new OddsAdapter(getContext(), item.getOdds());
         viewHolder.oddsList.setAdapter(viewHolder.adapter);
+        viewHolder.adapter.notifyDataSetChanged();
+
+
 
         return convertView;
     }

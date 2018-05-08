@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.a1061985.weebet.Model.Competition;
+
 public class MenuActivity extends AppCompatActivity {
 
     @Override
@@ -21,7 +23,10 @@ public class MenuActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_list_view:
-                   launchListOddsActivity();
+                launchListOddsActivity();
+                return true;
+            case R.id.menu_competitions:
+                launchCompetitionsActivity();
                 return true;
 
             default: return super.onOptionsItemSelected(item);
@@ -31,6 +36,12 @@ public class MenuActivity extends AppCompatActivity {
 
     private void launchListOddsActivity() {
         Intent intent = new Intent(getApplicationContext(), ListOddsActivity.class);
+        startActivity(intent);
+    }
+
+    private void launchCompetitionsActivity(){
+        Intent intent = new Intent(getApplicationContext(), CompetitionsActivity.class);
+        intent.putExtra("sportId", 1);
         startActivity(intent);
     }
 
