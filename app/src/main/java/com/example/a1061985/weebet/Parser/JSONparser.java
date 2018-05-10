@@ -19,6 +19,7 @@ public class JSONparser {
 
     public static final String TAG = "TAG";
 
+    private static final String KEY_MATCH_ID = "MatchId";
 
    // private static final String KEY_USER_ID = "user_id";
 
