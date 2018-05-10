@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Match {
 
+<<<<<<< HEAD
     private int Id;
     @SerializedName(value = "contendentHome", alternate = {"ContendentHome"})
     private Contendent contendentHome;
@@ -22,6 +23,27 @@ public class Match {
         this.ContendentAway = contenderAway;
         this.Time = time;
         this.Odds = odds;
+=======
+    @SerializedName(value = "id", alternate = {"Id"})
+    protected int id;
+    @SerializedName(value = "contendentHome", alternate = {"ContendentHome"})
+    private Contendent contendentHome;
+    @SerializedName(value = "contendentAway", alternate = {"ContendentAway"})
+    private Contendent contendentAway;
+    @SerializedName(value = "time", alternate = {"Time"})
+    private Date time;
+    @SerializedName(value = "odds", alternate = {"Odds"})
+    private List<Odds> odds;
+
+    public Match(){};
+
+    public Match(int id, Contendent contendentHome, Contendent contendentAway, Date time, List<Odds> odds) {
+        this.id = id;
+        this.contendentHome = contendentHome;
+        this.contendentAway = contendentAway;
+        this.time = time;
+        this.odds = odds;
+>>>>>>> b9973e64a3f3a10edba666c5944113bfc549acfa
     }
 
     public int getId() {
@@ -41,11 +63,19 @@ public class Match {
     }
 
     public Contendent getContendentAway() {
+<<<<<<< HEAD
         return ContendentAway;
     }
 
     public void setContendentAway(Contendent contendentAway) {
         this.ContendentAway = contendentAway;
+=======
+        return contendentAway;
+    }
+
+    public void setContendentAway(Contendent contendentAway) {
+        this.contendentAway = contendentAway;
+>>>>>>> b9973e64a3f3a10edba666c5944113bfc549acfa
     }
 
     public Date getTime() {
@@ -57,10 +87,18 @@ public class Match {
     }
 
     public List<Odds> getOdds() {
+<<<<<<< HEAD
         return Odds;
     }
 
     public void setOdds(List<Odds> odds) {
         this.Odds = odds;
+=======
+        return odds;
+    }
+
+    public void setOdds(List<Odds> odds) {
+        this.odds = odds;
+>>>>>>> b9973e64a3f3a10edba666c5944113bfc549acfa
     }
 }

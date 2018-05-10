@@ -1,15 +1,20 @@
 package com.example.a1061985.weebet.Model;
 
-public class Contender {
+import com.google.gson.annotations.SerializedName;
 
-    private int id;
+public class Contendent {
+
+    @SerializedName(value = "id", alternate = {"Id"})
+    protected int id;
+    @SerializedName(value = "name", alternate = {"Name"})
     private String name;
+    @SerializedName(value = "country", alternate = {"Country"})
     private String country;
 
 
-    public Contender(){};
+    public Contendent(){};
 
-    public Contender(int id, String name, String country) {
+    public Contendent(int id, String name, String country) {
         this.id = id;
         this.name = name;
         this.country = country;

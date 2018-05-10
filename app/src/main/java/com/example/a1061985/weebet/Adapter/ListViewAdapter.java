@@ -3,82 +3,80 @@ package com.example.a1061985.weebet.Adapter;
 
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.a1061985.weebet.Model.Odd;
+import com.example.a1061985.weebet.ListOddsActivity;
+import com.example.a1061985.weebet.Model.Match;
+import com.example.a1061985.weebet.Model.Odds;
 import com.example.a1061985.weebet.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ListViewAdapter extends ArrayAdapter<Odd> {
+public class ListViewAdapter extends ArrayAdapter<Match> {
 
-    List<Odd> odds;
+    private List<Match> matches;
     Context context;
     private LayoutInflater mInflater;
 
 
-    // Constructors
-    public ListViewAdapter(Context context, List<Odd> objects) {
+    public ListViewAdapter(@NonNull Context context, List<Match> objects) {
         super(context, 0, objects);
         this.context = context;
-        this.mInflater = LayoutInflater.from(context);
-        odds = objects;
+        matches = (List<Match>) objects;
+    }
+
+    private class ViewHolder {
+        TextView textview_list_contendentAway;
+        TextView textview_list_contendentHome;
+        ListView oddsList;
+        OddsAdapter adapter;
+
+        public ViewHolder(View v) {
+            textview_list_contendentAway = v.findViewById(R.id.textview_list_contendentAway);
+            textview_list_contendentHome = v.findViewById(R.id.textview_list_contendentHome);
+            oddsList = v.findViewById(R.id.ListOdds);
+        }
     }
 
     @Override
-    public Odd getItem(int position) {
-        return odds.get(position);
+    public Match getItem(int position) {
+        return matches.get(position);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-         ViewHolder vh;
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        // return super.getView(position, convertView, parent);
+        ViewHolder viewHolder;
+        //DataRecording dataRecording = getItem(position);
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            View view= inflater.inflate(R.layout.layout_row_view, parent, false);
-            vh = ViewHolder.create((RelativeLayout) view);
-            convertView.setTag(vh);
+            convertView = inflater.inflate(R.layout.layout_row_view, parent, false);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
         } else {
-            vh = (ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView.getTag();
         }
+        Match item = getItem(position);
+        viewHolder.textview_list_contendentAway.setText(String.valueOf(item.getContendentAway().getName()));
+        viewHolder.textview_list_contendentHome.setText(String.valueOf(item.getContendentHome().getName()));
 
-        Odd item = getItem(position);
+        viewHolder.adapter= new OddsAdapter(getContext(), item.getOdds());
+        viewHolder.oddsList.setAdapter(viewHolder.adapter);
 
-        vh.textViewOdd1.setText(String.valueOf(item.getOdd_1()));
-        vh.textViewOddX.setText(Double.toString(item.getOdd_x()));
-        vh.textViewOdd2.setText(Double.toString(item.getOdd_2()));
-
-
-        return vh.rootView;
+        return convertView;
     }
-
-
-    private static class ViewHolder {
-        public final RelativeLayout rootView;
-        public final TextView textViewOdd1;
-        public final TextView textViewOddX;
-        public final TextView textViewOdd2;
-
-        private ViewHolder(RelativeLayout rootView, TextView textViewOdd1, TextView textViewOddX,  TextView textViewOdd2) {
-            this.rootView = rootView;
-            this.textViewOdd1 = textViewOdd1;
-            this.textViewOdd2 = textViewOdd2;
-            this.textViewOddX = textViewOddX;
-        }
-
-        public static ViewHolder create(RelativeLayout rootView) {
-            TextView textViewOdd1 = (TextView) rootView.findViewById(R.id.textViewOdd1);
-            TextView textViewOddX = (TextView) rootView.findViewById(R.id.textViewOddX);
-            TextView textViewOdd2 = (TextView) rootView.findViewById(R.id.textViewOdd2);
-            return new ViewHolder(rootView, textViewOdd1, textViewOdd2, textViewOddX);
-        }
-    }
-
 
 }
 

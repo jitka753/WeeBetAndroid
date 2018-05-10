@@ -1,12 +1,18 @@
 package com.example.a1061985.weebet.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Competition {
 
-    private int id;
+    @SerializedName(value = "id", alternate = {"Id"})
+    protected int id;
+    @SerializedName(value = "name", alternate = {"Name"})
     private String name;
+    @SerializedName(value = "sport", alternate = {"Sport"})
     private Sport sport;
+    @SerializedName(value = "matches", alternate = {"Matches"})
     private List<Match> matches;
 
     public Competition(){};
