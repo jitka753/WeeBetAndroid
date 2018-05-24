@@ -45,7 +45,7 @@ public class ListViewAdapter extends ArrayAdapter<Match> {
         public ViewHolder(View v) {
             textview_list_contendentAway = v.findViewById(R.id.textview_list_contendentAway);
             textview_list_contendentHome = v.findViewById(R.id.textview_list_contendentHome);
-            oddsList = v.findViewById(R.id.ListOdds);
+//            oddsList = v.findViewById(R.id.ListOdds);
         }
     }
 
@@ -70,12 +70,30 @@ public class ListViewAdapter extends ArrayAdapter<Match> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.adapter= new OddsAdapter(getContext(), item.getOdds());
+
         viewHolder.textview_list_contendentAway.setText(String.valueOf(item.getContendentAway().getName()));
         viewHolder.textview_list_contendentHome.setText(String.valueOf(item.getContendentHome().getName()));
 
-        viewHolder.oddsList.setAdapter(viewHolder.adapter);
-        viewHolder.adapter.notifyDataSetChanged();
+        LinearLayout list =  convertView.findViewById(R.id.ListOdds);
+        list.removeAllViews();
+
+        for(Odds o : item.getOdds()){
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            View line = inflater.inflate(R.layout.layout_odds_row, list, false);
+            TextView vendor = line.findViewById(R.id.textViewVendorName);
+            TextView one = line.findViewById(R.id.textViewOdd1);
+            TextView draw = line.findViewById(R.id.textViewOddX);
+            TextView two = line.findViewById(R.id.textViewOdd2);
+            vendor.setText(o.getVendor().getName());
+            one.setText(String.valueOf(o.getOdds1()));
+            draw.setText(String.valueOf(o.getOddsX()));
+            two.setText(String.valueOf(o.getOdds2()));
+
+            list.addView(line);
+        }
+        //viewHolder.adapter= new OddsAdapter(getContext(), item.getOdds());
+        //viewHolder.oddsList.setAdapter(viewHolder.adapter);
+        //viewHolder.adapter.notifyDataSetChanged();
 
 
 

@@ -66,10 +66,15 @@
             />
         
     </LinearLayout>
-    <ListView
+    <LinearLayout
+        android:id="@+id/ListOdds"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></LinearLayout>
+    <!-- <ListView
         android:id="@+id/ListOdds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    </ListView>
+    </ListView>-->
 </LinearLayout>
